@@ -1,57 +1,6 @@
-import { useState } from 'react';
 import '../styles.css';
 
 function QuoteForm(){
-
-    const[formData,setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        company: '',
-        email: ''
-    })
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        setFormData((prev) => ({
-            ...prev,
-            [name] : value
-        }))
-    }
-
-    const handleSubmit = async(e: { preventDefault: () => void }) => {
-        e.preventDefault();
-        try{
-          const response = await fetch(
-            'https://orgfarm-798208078f-dev-ed.develop.my.salesforce.com/services/apexrest/leadapi/',
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(formData)
-            }
-            );
-
-          const result = await response.json();
-          if(response.ok){
-            alert(`Lead created successfully! Lead Id: ${result.leadId}`);
-            setFormData({
-              firstName: '',
-              lastName: '',
-              company: '',
-              email: ''
-            });
-          }
-          else{
-            alert(result.message || 'Oops... Cannot process your request at the moment.');
-          }
-        }
-        catch(error){
-            console.log('Failed' , error);
-            alert('Something went wrong while submitting the form.');
-        }
-    }
     
     return(
         <>
@@ -62,29 +11,38 @@ function QuoteForm(){
           Please enter your details and we'll reach out to you.
         </p>
 
-        <form className="quote-form simple-form" onSubmit={handleSubmit}>
+        <form className="quote-form simple-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000veqAL" method="POST">
+          <input type="hidden" name="oid" value="00DdM00000veqAL"/>
+          <input type="hidden" name="retURL" value="https://himalayan-explorer-pmbggy9o4-soumita-s-projects.vercel.app/https://himalayan-explorer-pmbggy9o4-soumita-s-projects.vercel.app/"/>
           <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="first_name">First Name</label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
+              id="first_name"
+              name="first_name"
               placeholder="Enter your first name"
               required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="last_name">Last Name</label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
+              id="last_name"
+              name="last_name"
               placeholder="Enter your last name"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="company">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Enter your company. If individual, write NA."
               required
             />
           </div>
@@ -95,8 +53,6 @@ function QuoteForm(){
               type="email"
               id="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
               placeholder="Enter your email"
               autoComplete='email'
               required
