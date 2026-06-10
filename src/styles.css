@@ -145,7 +145,7 @@
 }
 
 .quote-page{
-  background-color: #d8e6ff;
+  background-image: url('./assets/quote-form-bg.png');
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -154,24 +154,43 @@
   font-family: 'Forum';
   text-align: center;
   font-family: 'Bebas Neue';
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
+
+.quote-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
 
 .quote-title{
   letter-spacing: 5px;
-  font-size: 6vw;
+  font-size: 8vh;
   margin-bottom: 0;
   color: black;
+  position: relative;
+  z-index: 1;
 }
 
 .quote-subtitle{
-  margin: 0;
+  margin-top: 0;
   color: rgb(42, 42, 42);
-  font-size: 3vw;
+  font-size: 4vh;
   letter-spacing: 1px;
+  margin-bottom: 5vh;
+  position: relative;
+  z-index: 1;
 }
 
 .quote-page form{
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 input{
@@ -188,22 +207,22 @@ input{
 input::placeholder{
   font-family: 'Forum';
   color: rgb(35, 35, 35);
-  font-size: 2vw;
+  font-size: 2.5vh;
   padding: 5px;
 }
 
 .quote-page label{
   display: block;
-  margin-top: 5vw;
+  margin-top: 3vh;
   letter-spacing: 1px;
-  font-size: 2.5vw;
+  font-size: 3vh;
   color: #000000;
   font-family: 'Forum';
   font-weight: bold;
 }
 
 .quote-page button{
-  margin-top: 5vw;
+  margin-top: 3vh;
   border-radius: 10px;
   border-color: #222222;
   border-width: 1.5px;
