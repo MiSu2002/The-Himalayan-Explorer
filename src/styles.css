@@ -232,3 +232,44 @@ input::placeholder{
   color: #ffffff;
   cursor: pointer;
 }
+
+.successQuotePage{
+  text-align: center;
+  display: block;
+  position: fixed;
+  background-color: #cbedffca;
+  width: 100%;
+  height: 100%;
+}
+
+.successQuotePage h1{
+  font-family: 'Bebas Neue';
+  letter-spacing: 3px;
+  margin-top: 30vh;
+  font-size: 7vh;
+  padding: 0;
+}
+
+.successQuotePage h3{
+  font-family: 'Forum';
+  letter-spacing: 1px;
+  font-size: 3vh;
+}
+
+.successQuotePage .options-success{
+  display: block;
+  font-family: 'Bebas Neue';
+  font-size: 2vh;
+  align-items: center;
+  margin-top: 5vh;
+  font-family: 'Forum';
+  font-weight: 900;
+  font-size: 2.5vh;
+  background-color: #0000007b;
+  padding: 5vh;
+}
+
+.successQuotePage .options-success a{
+  padding: 20px;
+  color: #c8d6f0;
+}

@@ -1,8 +1,8 @@
 import '../styles.css';
 
 function QuoteForm(){
-    
-    return(
+
+  return(
         <>
         <section className="quote-page">
       <div className="quote-container">
@@ -11,9 +11,11 @@ function QuoteForm(){
           Please enter your details and we'll reach out to you.
         </p>
 
-        <form className="quote-form simple-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000veqAL" method="POST">
+        <form className="quote-form simple-form" 
+        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000veqAL" 
+        method="POST">
           <input type="hidden" name="oid" value="00DdM00000veqAL"/>
-          <input type="hidden" name="retURL" value="https://himalayan-explorer-pmbggy9o4-soumita-s-projects.vercel.app/https://himalayan-explorer-pmbggy9o4-soumita-s-projects.vercel.app/"/>
+          <input type="hidden" name="retURL" value={`${window.location.origin}/successQuote`}/>
           <div className="form-group">
             <label htmlFor="first_name">First Name</label>
             <input

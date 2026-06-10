@@ -1,5 +1,6 @@
 import './styles.css'
 import QuoteForm from './components/QuoteForm';
+import SuccessQuote from './components/SuccessQuote';
 import { Routes, Route, Link } from 'react-router-dom';
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       </section>
       }/>
       <Route path='/quoteForm' element={<QuoteForm/>}/>
+      <Route path="/successQuote" element={<SuccessQuote/>} />
     </Routes>
       
     </>
