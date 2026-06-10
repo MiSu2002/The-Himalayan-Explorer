@@ -40,15 +40,16 @@ function QuoteForm(){
             <label htmlFor="company">Company</label>
             <input
               type="text"
-              id="company"
+              id="companyField"
               name="company"
-              placeholder="Enter your company. If individual, write NA."
+              placeholder="Enter your company"
+              autoComplete="off"
               required
             />
           </div>
 
           <div className="form-group full-width">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
