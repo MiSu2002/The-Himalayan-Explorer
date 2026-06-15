@@ -2,6 +2,8 @@ import '../styles.css';
 
 function QuoteForm(){
 
+  const orgId = import.meta.env.SF_ORG_ID;
+  const successUrl = `${window.location.origin}/successQuote`;
   return(
         <>
         <section className="quote-page">
@@ -12,10 +14,11 @@ function QuoteForm(){
         </p>
 
         <form className="quote-form simple-form" 
-        action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000veqAL" 
+        action={`https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=${orgId}`} 
         method="POST">
-          <input type="hidden" name="oid" value="00DdM00000veqAL"/>
-          <input type="hidden" name="retURL" value={`${window.location.origin}/successQuote`}/>
+          <input type="hidden" name="oid" value={orgId}/>
+          <input type="hidden" name="retURL" value={successUrl}/>
+          <input type="hidden" name="lead_source" value="Website" />
           <div className="form-group">
             <label htmlFor="first_name">First Name</label>
             <input
@@ -34,18 +37,6 @@ function QuoteForm(){
               id="last_name"
               name="last_name"
               placeholder="Enter your last name"
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="company">Company</label>
-            <input
-              type="text"
-              id="companyField"
-              name="company"
-              placeholder="Enter your company"
-              autoComplete="off"
               required
             />
           </div>
